@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Space, Button, Input, Modal } from 'antd';
+import { Table, Space, Button, Input, Modal, message } from 'antd';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,26 +62,33 @@ const MemberList = () => {
         method: 'POST',
       });
       if (response.ok) {
-        // Üye başarıyla silindi, tabloyu güncelle
+        const result = await response.json();
+        message.success(result.message);
         await fetchResult();
       } else {
-        // Silme işlemi başarısız oldu
-        console.error('Üye silinemedi');
+        const result = await response.json();
+        message.error(result.message);
       }
     } catch (error) {
       console.error('Üye silinirken bir hata oluştu:', error);
-    } finally {
-      // Silme işlemi tamamlandı, onay iletişim kutusunu kapat
+    } finally { 
       setDeleteConfirmVisible(false);
     }
   };
 
   const handleCancelDelete = () => {
-    // Kullanıcı silmeyi iptal etti, onay iletişim kutusunu kapat
     setDeleteConfirmVisible(false);
   };
 
   const columns = [
+    {
+      title: 'No',
+      dataIndex: 'index',
+      key: 'index',
+      render: (text, record, index) => index + 1,
+      width: '5%',
+      align: 'center',
+    },
     {
       title: 'Adı',
       dataIndex: 'name',
@@ -145,7 +152,12 @@ const MemberList = () => {
           style={{ width: 200 }}
         />
       </Space>
-      <Table columns={columns} dataSource={result} onChange={handleChange} />
+      <Table 
+      columns={columns} 
+      dataSource={result} 
+      onChange={handleChange}
+      pagination={{ showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} kitap` }}
+       />
       <Modal
         title="Üye Sil"
         visible={deleteConfirmVisible}

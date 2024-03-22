@@ -33,6 +33,7 @@ const BookAdd = () => {
             message.error(result.message);
         }
         const data = await response.json();
+        data.data.sort((a, b) => a.name.localeCompare(b.name));
         setGenres(data.data);
       } catch (error) {
         console.error('Error fetching genres:', error);
@@ -47,6 +48,7 @@ const BookAdd = () => {
             message.error(result.message);
         }
         const data = await response.json();
+        data.data.sort((a, b) => a.name.localeCompare(b.name));
         setPublishers(data.data);
       } catch (error) {
         console.error('Error fetching publishers:', error);
@@ -61,6 +63,7 @@ const BookAdd = () => {
             message.error(result.message);
         }
         const data = await response.json();
+        data.data.sort((a, b) => a.name.localeCompare(b.name));
         setAuthors(data.data);
       } catch (error) {
         console.error('Error fetching authors:', error);
@@ -122,14 +125,6 @@ const BookAdd = () => {
       >
         <InputNumber style={{ width: '100%' }} />
       </Form.Item>
-
-      {/* <Form.Item
-        label="Mevcut Stok"
-        name="inStock"
-        rules={[{ required: true, message: 'Lütfen mevcut stoku girin!' }]}
-      >
-        <InputNumber style={{ width: '100%' }} />
-      </Form.Item> */}
 
       <Form.Item
         label="Bölüm"

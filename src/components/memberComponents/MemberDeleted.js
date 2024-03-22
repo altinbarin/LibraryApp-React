@@ -84,6 +84,14 @@ const MemberDeleted = () => {
 
   const columns = [
     {
+      title: 'No',
+      dataIndex: 'index',
+      key: 'index',
+      render: (text, record, index) => index + 1,
+      width: '5%',
+      align: 'center',
+    },
+    {
       title: 'Adı',
       dataIndex: 'name',
       key: 'name',
@@ -146,7 +154,12 @@ const MemberDeleted = () => {
           style={{ width: 200 }}
         />
       </Space>
-      <Table columns={columns} dataSource={result} onChange={handleChange} />
+      <Table 
+      columns={columns} 
+      dataSource={result} 
+      onChange={handleChange} 
+      pagination={{ showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} kitap` }}
+      />
       <Modal
         title="Üye Aktive Et"
         visible={activateConfirmVisible}

@@ -20,6 +20,8 @@ import AuthorsBooks from './components/authorComponents/AuthorsBooks';
 import GenresBooks from './components/genreComponents/GenresBooks';
 import PublishersBooks from './components/publisherComponents/PublishersBooks';
 import MemberDeleted from './components/memberComponents/MemberDeleted';
+import BorrowedBookAdd from './components/borrowedBookComponents/BorrowedBookAdd';
+import ReturnedBookList from './components/borrowedBookComponents/ReturnedBookList';
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
         <Route path="/add-member" element={<MemberAdd/>}/>
         <Route path="/member-detail/:id" element={<MemberDetail/>}/>
         <Route path="/borrowedbooks" element={<BorrowedBookList/>}/>
+        <Route path="/returnedbooks" element={<ReturnedBookList/>}/>
+        <Route path="/add-borrowedbook/:id/:name" element={<BorrowedBookAdd/>}/>
       </Routes>
       {/* </BrowserRouter> */}
     </div>

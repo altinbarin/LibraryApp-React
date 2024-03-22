@@ -25,6 +25,16 @@ const items = [
     ]
   },
   {
+    label: 'Ödünç Verilen Kitaplar',
+    key: 'sub8',
+    icon: <AppstoreOutlined />,
+    type: 'group',
+    children: [
+      { label: 'Ödünç Verilen Kitaplar Listesi', key: '14', route: '/borrowedbooks' },
+      { label: 'Ödünç Verilmiş Kitaplar', key: '15', route: '/returnedbooks' },
+    ]
+  },
+  {
     label: 'Yayınevi İşlemleri',
     key: 'sub3',
     icon: <AppstoreOutlined />,
@@ -60,8 +70,8 @@ const items = [
     icon: <AppstoreOutlined />,
     type: 'group',
     children: [
-      { label: 'Üye Listesi', key: '10', route: '/members' },
       { label: 'Üye Ekle', key: '11', route: '/add-member' },
+      { label: 'Üye Listesi', key: '10', route: '/members' },
       { label: 'Silinmiş Üyeler', key: '12', route: '/deleted-member' },
     ]
   },
@@ -70,7 +80,7 @@ const items = [
   },
   {
     label: 'Ayarlar',
-    key: 'sub4',
+    key: 'sub7',
     icon: <SettingOutlined />,
     children: [
       { label: 'Option 10', key: '13' },
