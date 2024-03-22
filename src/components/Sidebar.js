@@ -31,7 +31,7 @@ const items = [
     type: 'group',
     children: [
       { label: 'Ödünç Verilen Kitaplar Listesi', key: '14', route: '/borrowedbooks' },
-      { label: 'Ödünç Verilmiş Kitaplar', key: '15', route: '/returnedbooks' },
+      { label: 'İade Alınmış Kitaplar', key: '15', route: '/returnedbooks' },
     ]
   },
   {

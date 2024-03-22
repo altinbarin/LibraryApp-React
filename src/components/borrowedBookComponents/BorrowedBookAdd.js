@@ -143,7 +143,7 @@ const BorrowedBookAdd = () => {
       <Table columns={columns} dataSource={result} onChange={handleChange} />
 
       <Modal
-        title={`'${selectedMember ? selectedMember.name : ''}' adlı üyeye '${name}' adlı kitabı ödünç verelecek`}
+        title={`'${selectedMember ? selectedMember.name : ''}' adlı üyeye '${name}' adlı kitap ödünç verilecek`}
         visible={modalVisible}
         onOk={handleConfirmBorrow}
         onCancel={() => setModalVisible(false)}

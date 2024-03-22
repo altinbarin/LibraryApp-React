@@ -75,9 +75,6 @@ const BookDetail = () => {
           <Form.Item label="Toplam Stok" name="totalStock" rules={[{ required: true, message: 'Lütfen toplam stoku girin!' }]}>
             <InputNumber style={{ width: '100%' }} />
           </Form.Item>
-          <Form.Item label="Mevcut Stok" name="inStock" rules={[{ required: true, message: 'Lütfen mevcut stoku girin!' }]}>
-            <InputNumber style={{ width: '100%' }} />
-          </Form.Item>
           <Form.Item label="Bölüm" name="section" rules={[{ required: true, message: 'Lütfen bölümü girin!' }]}>
             <Input />
           </Form.Item>

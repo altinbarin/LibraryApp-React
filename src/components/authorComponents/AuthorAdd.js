@@ -3,7 +3,7 @@ import { Button, Form, Input, Card, message } from 'antd';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
  
-const FirmAdd = () => {
+const AuthorAdd = () => {
   const apiUrl = useSelector((state) => state.apiUrl);
   const navigate = useNavigate();
   const [componentSize, setComponentSize] = useState('default');
@@ -81,7 +81,7 @@ const FirmAdd = () => {
  
           <Form.Item wrapperCol={{ offset: 6, span: 14 }}>
             <Button type="primary" htmlType="submit">
-              Şirketi Ekle
+              Yazar Ekle
             </Button>
           </Form.Item>
         </Form>
@@ -89,5 +89,5 @@ const FirmAdd = () => {
   );
 };
  
-export default FirmAdd;
+export default AuthorAdd;
  
