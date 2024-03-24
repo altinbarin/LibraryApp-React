@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Space, Input } from 'antd';
+import { Table, Space, Input, Button } from 'antd';
 import {useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,7 +26,6 @@ const AuthorList = () => {
             const response = await fetch(apiUrl+'Author/allauthors');
             const data = await response.json();
             setResult(data.data);
-            setOriginalResult(data.data); // originalResult değişkenini güncelleniyor
             // console.log(data.data);
         }catch(error){
             console.log(error);
@@ -46,12 +45,19 @@ const AuthorList = () => {
   };
 
   const handleSearch = (e) => {
-    setSearchText(e.target.value); // Arama kutucuğundaki değeri günceller
+    setSearchText(e.target.value); 
   };
 
   const handleRowClick = (record) => {
-    navigate(`/authorsbooks/${record.id}`); 
+    navigate(`/author-details/${record.id}`); 
   };
+
+  const handleSubmit = (record) =>
+      {
+        // console.log(record);
+        navigate(`/authorsbooks/${record}`); 
+      }
+
 
     const columns = [
       {
@@ -75,7 +81,18 @@ const AuthorList = () => {
             title: 'Soyadı',
             dataIndex: 'surname',
             key:'surname',
-        }       
+        },
+        {
+          title: 'İşlem',
+          key: 'action',
+          render: (text, record) => (
+            <Space size="middle">
+              <Button onClick={() => handleSubmit(record.id)} >
+                Kitapları
+              </Button>
+            </Space>
+          ),
+        },   
     ];
 
   return (

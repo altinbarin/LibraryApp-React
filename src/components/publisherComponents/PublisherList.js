@@ -45,12 +45,18 @@ const PublisherList = () => {
       };
     
       const handleSearch = (e) => {
-        setSearchText(e.target.value); // Arama kutucuğundaki değeri günceller
+        setSearchText(e.target.value); 
       };
 
       const handleRowClick = (record) => {
-        navigate(`/publishersbooks/${record.id}`); 
+        navigate(`/publisher-details/${record.id}`); 
       };
+
+      const handleSubmit = (record) =>
+      {
+        // console.log(record);
+        navigate(`/publishersbooks/${record}`); 
+      }
 
     const columns = [
       {
@@ -84,7 +90,18 @@ const PublisherList = () => {
             title:'Email',
             dataIndex:'email',
             key:'email',
-        }    
+        },
+        {
+          title: 'İşlem',
+          key: 'action',
+          render: (text, record) => (
+            <Space size="middle">
+              <Button onClick={() => handleSubmit(record.id)} >
+                Kitapları
+              </Button>
+            </Space>
+          ),
+        },    
     ];
 
   return (
@@ -108,3 +125,5 @@ const PublisherList = () => {
 }
 
 export default PublisherList
+
+

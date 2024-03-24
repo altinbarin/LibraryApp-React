@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      Footer
+    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      Furkan ALTINBARIN © 2024
     </div>
   )
 }

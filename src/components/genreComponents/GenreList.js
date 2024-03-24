@@ -25,7 +25,7 @@ const GenreList = () => {
             const response = await fetch(apiUrl+'Genre/allgenres');
             const data = await response.json();
             setResult(data.data);
-            setOriginalResult(data.data); // originalResult değişkenini güncelleniyor
+            setOriginalResult(data.data);
             // console.log(data.data);
         }catch(error){
             console.log(error);
@@ -45,13 +45,21 @@ const GenreList = () => {
   };
 
   const handleSearch = (e) => {
-    setSearchText(e.target.value); // Arama kutucuğundaki değeri günceller
+    setSearchText(e.target.value); 
   };
 
 
   const handleRowClick = (record) => {
-    navigate(`/genresbooks/${record.id}`); 
+    navigate(`/genre-details/${record.id}`); 
   };
+
+
+  const handleSubmit = (record) =>
+      {
+        console.log(record);
+        navigate(`/genresbooks/${record}`); 
+      }
+
 
     const columns = [
       {
@@ -70,7 +78,18 @@ const GenreList = () => {
             sorter: (a, b) => a.name.localeCompare(b.name),
             sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
             ellipsis: true,
-        },     
+        },
+        {
+          title: 'İşlem',
+          key: 'action',
+          render: (text, record) => (
+            <Space size="middle">
+              <Button onClick={() => handleSubmit(record.id)} >
+                Kitaplar
+              </Button>
+            </Space>
+          ),
+        },
     ];
 
   return (
