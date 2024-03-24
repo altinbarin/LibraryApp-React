@@ -37,9 +37,7 @@ const PublisherAdd = () => {
         navigate('/publishers'); 
       } else {
         const result = await response.json();
-        const errorMessage = result.errors && Object.values(result.errors)[0][0];
-        console.log(errorMessage);
-        message.error(errorMessage);
+        message.error(result.message);
       }
     } catch (error) {
       console.error('API isteği sırasında bir hata oluştu', error);

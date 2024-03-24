@@ -92,8 +92,7 @@ const BookAdd = () => {
       }
       else{
         const result = await response.json();
-        const errorMessages = Object.values(result.errors).map((error) => error[0]);
-        message.error(errorMessages.join(', '));
+        message.error(result.message);
       }
     } catch (error) {
       console.error('Kitap oluşturulamadı:', error);
