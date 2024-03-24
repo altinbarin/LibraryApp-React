@@ -69,11 +69,6 @@ const GenresBooks = () => {
       sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
       ellipsis: true,
     },
-    // {
-    //   title: 'Yazar',
-    //   dataIndex: 'authorName',
-    //   key: 'authorName',
-    // },
     {
       title: 'Toplam Stok',
       dataIndex: 'totalStock',
@@ -89,16 +84,6 @@ const GenresBooks = () => {
       dataIndex: 'section',
       key: 'section',
     },
-    // {
-    //   title: 'Türü',
-    //   dataIndex: 'genreName',
-    //   key: 'genreName',
-    // },
-    // {
-    //   title: 'Yayınevi',
-    //   dataIndex: 'publisherName',
-    //   key: 'publisherName',
-    // },
   ];
 
   return (

@@ -25,7 +25,7 @@ const PublisherList = () => {
             const response = await fetch(apiUrl+'Publisher/allpublishers');
             const data = await response.json();
             setResult(data.data);
-            setOriginalResult(data.data); // originalResult değişkenini güncelleniyor
+            setOriginalResult(data.data); 
             // console.log(data.data);
         }catch(error){
             console.log(error);
